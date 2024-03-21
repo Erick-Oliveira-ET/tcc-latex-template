@@ -1,0 +1,159 @@
+% ------------------------------------------------------------------------
+% PROPRIEDADES DO DOCUMENTO
+% ------------------------------------------------------------------------
+\documentclass[12pt,
+openright, 
+oneside, %
+%twoside, %TCC: Se seu texto tem mais de 100 páginas, descomente esta linha e comente a anterior
+a4paper,    %
+%english,   %
+brazil]{facom-ufu-abntex2}
+
+% ------------------------------------------------------------------------
+% PACOTES
+% ------------------------------------------------------------------------
+\usepackage{amsmath}
+\usepackage{icomma}
+\usepackage[portuguese,ruled]{algorithm2e}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks = false,
+    hidelinks = true
+}
+\selectlanguage{portuguese}
+
+% ---
+% Configurações do pacote backref
+% Usado sem a opção hyperpageref de backref
+\renewcommand{\backrefpagesname}{}
+% Texto padrão antes do número das páginas
+\renewcommand{\backref}{}
+% Define os textos da citação
+\renewcommand*{\backrefalt}[4]{}%
+% ---
+% ------------------------------------------------------------------------
+% INFO para CAPA e FOLHA DE ROSTO 
+% ------------------------------------------------------------------------
+\titulo{XXX Título do Trabalho XXX} %TCC
+
+\autor{XXX Nome do Autor XXX} %TCC
+\data{XXX Ano XXX}
+
+\orientador{XXX Nome completo do orientador XXX} %TCC
+%\coorientador{Nome completo do orientador caso tenha} %TCC
+
+\begin{document}
+\frenchspacing 
+
+% ----------------------------------------------------------
+% ELEMENTOS PRÉ-TEXTUAIS
+% ----------------------------------------------------------
+%\pretextual
+\imprimircapa
+\imprimirfolhaderosto
+
+
+% --- Inserir folha de aprovação --- %
+\input{preTextuais/folhaAprovacao}
+% \includepdf{folhadeaprovacao_final.pdf} % TCC: depois de aprovado o trabalho, descomente esta linha e comente a anterior para incluir o scan da folha de aprovação.
+
+%% OBS.: as seções dedicatória, agradecimento e epígrafe não são obrigatórias. Só as mantenha se achar pertinente.
+
+% --- Dedicatória --- %
+\imprimirdedicatoria{XXX Dedicatória XXX}
+
+% --- Agradecimentos --- %
+\imprimiragradecimentos{XXX Agradecimentos XXX}
+
+% --- Epígrafe --- %
+% \imprimirepigrafe{Insere alguma citação que ache conveniente caso queira ...}
+	
+% --- Resumo em português --- %
+\begin{resumo} %TCC:
+XXX Resumo XXX
+ 
+ \vspace{\onelineskip}
+ \noindent
+ \textbf{Palavras-chave}: XXX Palavras, chave XXX. %TCC:
+\end{resumo}
+
+\renewcommand{\resumoname}{Abstract}
+\begin{resumo}\itshape %TCC:
+    XXX Resumo em inglês XXX
+
+ \vspace{\onelineskip}
+ \noindent
+ {\normalfont \textbf{ Palavras-chave}}: XXX Palavras, chave, em, inglês XXX. %TCC:
+ 
+\end{resumo}
+
+% --- lista de ilustrações --- %
+\listailustracoes
+
+% --- lista de tabelas --- %
+\listatabelas
+
+% --- lista de abreviaturas e siglas --- %
+\input{preTextuais/Abreviaturas}
+
+% --- lista de símbolos --- %
+\input{preTextuais/simbolos} % caso não existe símbolos no trabalho, comente esta linha
+
+% --- sumario --- %
+\sumario
+
+
+% ----------------------------------------------------------
+% ELEMENTOS TEXTUAIS
+% ----------------------------------------------------------
+\textual
+
+% --- Introdução --- %
+\include{capitulos/introducao}
+
+% ---  Fundamentação teórica --- %
+\include{capitulos/fundamentacaoTeorica}
+
+% --- Desenvolvimento --- %
+\include{capitulos/desenvolvimento}
+
+% --- Resultados --- %
+\include{capitulos/resultados}
+
+% --- Conclusão --- %
+\include{capitulos/conclusao}
+
+% ----------------------------------------------------------
+% ELEMENTOS PÓS-TEXTUAIS
+% ----------------------------------------------------------
+\postextual
+
+% --- Referências bibliográficas --- %
+\bibliography{blibiografia}
+
+% --- Apêndices --- %
+% só mantenha se for pertinente.
+% \begin{apendicesenv}
+% \partapendices % Imprime uma página indicando o início dos apêndices
+
+% % --- Apendice 1--- %
+% \include{apendices/apendice1}
+
+% \end{apendicesenv}
+
+% --- Anexos --- %
+% so mantenha se pertinente.
+% \begin{anexosenv}
+% \partanexos % Imprime uma página indicando o início dos anexos
+
+% --- Anexo 1 --- %
+% \include{anexos/anexo1}
+
+% \end{anexosenv}
+
+
+% ------------------------------------------------------------------------
+% FIM DO DOCUMENTO
+% ------------------------------------------------------------------------
+\printindex
+\end{document}
